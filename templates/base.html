@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %}{%endblock title%} | SAD0XER Second Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Nav Bar for Mobile view. -->
+    <nav class="navbar navbar-expand-lg body-tertiary bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">SAD0XER Ltd</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Nav Bar -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/admin">Admin Panel</a>
+                    </li>
+                </ul>
+
+                <!-- Button trigger LogIn modal -->
+                <button type="submit" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#loginmodal">
+                    Log-In
+                </button>
+                <!-- Button trigger SignUp modal -->
+                <button type="submit" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#signupmodal">
+                    Sign-Up
+                </button>
+                <!-- Button trigger Admin SignUp modal -->
+                <button type="submit" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#signupmodal">
+                    Admin Sign-Up
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SignUp Modal -->
+    <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="SignUp Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="signupmodal">Sign Up</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/signup" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="fname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="fname" id="fname" aria-describedby="emailHelp"
+                                placeholder="Enter First Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lname" id="lname" aria-describedby="emailHelp"
+                                placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                aria-describedby="emailHelp" placeholder="Choose Unique Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                aria-describedby="emailHelp" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd1" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="pwd1" id="pwd1"
+                                placeholder="Enter Password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd2" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" name="pwd2" id="pwd2"
+                                placeholder="Re-Enter Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin SignUp Modal -->
+    <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="SignUp Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="signupmodal">Sign Up</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/signup" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="fname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="fname" id="fname" aria-describedby="emailHelp"
+                                placeholder="Enter First Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lname" id="lname" aria-describedby="emailHelp"
+                                placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                aria-describedby="emailHelp" placeholder="Choose Unique Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd1" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="pwd1" id="pwd1" placeholder="Enter Password"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd2" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" name="pwd2" id="pwd2"
+                                placeholder="Re-Enter Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LogIn Modal -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="LogIn Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="loginmodal">Log In</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/login" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="Username" id="Username" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Pass" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="Pass" id="Pass" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block body %}{% endblock body %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
